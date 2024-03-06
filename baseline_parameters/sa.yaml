@@ -1,0 +1,9 @@
+# PROBLEM_SIZE_LIST = [100]
+# ITERATIONS_LIST = [1e9]
+# MAX_ATTEMPTS_LIST = [1, 10, 50]
+# TEMPERATURE_LIST = [0.001, 0.1, 1, 10]
+problem_size: 100
+max_iterations: 1000000000.0
+max_attempts: 50
+start_temperature: 10.0
+decay_type: GeomDecay
