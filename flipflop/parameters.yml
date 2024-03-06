@@ -1,0 +1,5 @@
+problem_size: 1000
+iterations: 1000
+attempts: 100
+population_size: 100
+num_runs: 3
