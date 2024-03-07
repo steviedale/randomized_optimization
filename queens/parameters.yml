@@ -1,5 +1,5 @@
-problem_size: 100
-iterations: 1000
+problem_size: 1000
+iterations: 10
 attempts: 100
 population_size: 100
-num_runs: 3
+num_runs: 1
