@@ -1,0 +1,3 @@
+[submodule "mlrose"]
+	path = mlrose
+	url = https://github.com/hiive/mlrose.git

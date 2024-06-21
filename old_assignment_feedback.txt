@@ -1,0 +1,32 @@
+Implementation: Source Code is accessible and reviewed. 
+
+NN comparison with algorithms: 
+    Missing Importance of Optimization Problems was not explained. 
+    Problem description could be improved with discussions on how are the global and local optima 
+    situated, are they smooth and differentiable etc., 
+
+Problem 1: Continuous peaks used to highlight GA.
+    Performance against iterations is missing. 
+    Also problem size and function evaluations versus Fitness was not analyzed. 
+    The report could benefit from deeper insights from the author around how the other algorithms 
+    function in contrast to GA for this problem. The intent of the report is to understand 
+    optimization algorithms and drawing intuition around algorithmic behaviour and its suitability 
+    for problem spaces. Convergence analysis could be improved on identifying stopping conditions 
+    and exploration on generality versus specificity of GA on this problem. 
+
+Problem 2: Flipflops used to highlight SA. 
+    Performance against iterations is missing. 
+    Also problem size and function evaluations versus Fitness was not analyzed. 
+    Convergence analysis could be improved on identifying stopping conditions and exploration on 
+    generality versus specificity of SA on this problem. Some hyper parameter exploration was 
+    done and few good insights. But needs further indepth analysis to understand why SA performed 
+    better in comparison to other algorithms and contrast with previous problems and observations. 
+
+MISSING: 
+    Usually Max K Color or Four peaks works optimal for MIMIC. Or you could also highlight 
+    negative traits of MIMIC. There is no necessity that it should only be in positive light. 
+    
+Conclusion: Missing. 
+
+Good effort with the sections analyzed and could be improved further. Good luck with the rest of 
+the semester!

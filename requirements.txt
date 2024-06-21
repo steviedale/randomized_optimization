@@ -1,0 +1,8 @@
+pandas
+numpy
+matplotlib
+ipykernel
+tqdm
+pyyaml
+scikit-learn
+networkx
