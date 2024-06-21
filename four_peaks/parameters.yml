@@ -1,6 +1,0 @@
-t_pct: 0.1
-problem_size: 500
-iterations: 1000
-attempts: 100
-population_size: 100
-num_runs: 3
