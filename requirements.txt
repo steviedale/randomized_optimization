@@ -7,3 +7,5 @@ pyyaml
 scikit-learn
 networkx
 jinja2
+opencv-python
+tensorflow
