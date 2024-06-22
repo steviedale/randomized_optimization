@@ -15,7 +15,7 @@ sys.path.append('../mlrose')
 from mlrose_hiive import NeuralNetwork
 
 # %%
-LR = 1
+LR = 0.1
 ALG = 'random_hill_climb'
 MAX_ATTEMPTS = 100
 CLIP = 5
@@ -49,6 +49,8 @@ data = {
     'runs': [],
 }
 for run_i, (train_index, test_index) in enumerate(skf.split(X, y)):
+    start_time = time.perf_counter()
+
     run_data = {}
 
     X_train = X[train_index]
@@ -74,9 +76,13 @@ for run_i, (train_index, test_index) in enumerate(skf.split(X, y)):
         if len(nn_model.fitness_curve) < iterations:
             # print("Early stopping at ", iterations)
             break
+
+    end_time = time.perf_counter()
+
     run_data['test_scores'] = test_scores
     run_data['iterations'] = iter_list[:len(test_scores)]
     run_data['fitness_curve'] = nn_model.fitness_curve
+    run_data['runtime'] = end_time - start_time
 
     data['runs'].append(run_data)
 
