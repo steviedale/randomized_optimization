@@ -1,0 +1,6 @@
+Restarts,Best Fitness Mean,Best Time Mean,Best FEvals Mean,Best Iterations Mean
+1,25.60,0.14,567,383
+20,29.31,11.54,6445,636
+50,30.00,62.76,13749,777
+100,30.00,308.95,29083,834
+200,30.00,1345.20,44352,861
