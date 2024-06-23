@@ -15,13 +15,13 @@ sys.path.append('../mlrose')
 from mlrose_hiive import NeuralNetwork, GeomDecay
 
 # %%
-LR = 1
+LR = 0.01
 ALG = 'genetic_alg'
 MAX_ATTEMPTS = 100
 CLIP = 5
 HIDDEN_NODES = [10,]
 MAX_PATIENCE = 5
-POPULATION_SIZE = 100
+POPULATION_SIZE = 200
 MUTATION_RATE = 0.1
 
 # %%
