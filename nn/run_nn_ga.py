@@ -15,7 +15,7 @@ sys.path.append('../mlrose')
 from mlrose_hiive import NeuralNetwork
 
 # %%
-LR = 1e-2
+LR = 10
 ALG = 'genetic_alg'
 MAX_ATTEMPTS = 100
 CLIP = 5
@@ -64,7 +64,7 @@ for run_i, (train_index, test_index) in enumerate(skf.split(X, y)):
     y_train_one_hot = y_one_hot[train_index]
     y_test_one_hot = y_one_hot[test_index]
 
-    iter_list = np.arange(1, 100001, 10) 
+    iter_list = np.arange(1, 100001, 5) 
     test_scores = []
     best_test_score = 0
     patience_counter = 0
