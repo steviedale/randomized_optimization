@@ -12,32 +12,20 @@ from dataset_helper import get_mnist_data
 
 import sys
 sys.path.append('../mlrose')
-from mlrose_hiive import NeuralNetwork
+from mlrose_hiive import NeuralNetwork, GeomDecay
 
 # %%
-LR = 1e-8
-ALG = 'gradient_descent'
+LR = 1
+ALG = 'simulated_annealing'
 MAX_ATTEMPTS = 100
 CLIP = 5
 HIDDEN_NODES = [10,]
-MAX_PATIENCE = 10
+MAX_PATIENCE = 5
+TEMPERATURE = 1
+DECAY = 0.99
 
 # %%
 X, y, y_one_hot = get_mnist_data()
-
-# %%
-# Split data into training and test sets
-skf = StratifiedKFold(n_splits=3, random_state=None, shuffle=True)
-train_index, test_index = list(skf.split(X, y))[0]
-X_train = X[train_index]
-X_test = X[test_index]
-y_train = y[train_index]
-y_test = y[test_index]
-y_train_one_hot = y_one_hot[train_index]
-y_test_one_hot = y_one_hot[test_index]
-
-# %%
-X_train.shape
 
 # %%
 skf = StratifiedKFold(n_splits=3, random_state=None, shuffle=True)
@@ -48,6 +36,7 @@ data = {
     'clip': CLIP,
     'hidden_nodes': HIDDEN_NODES,
     'runs': [],
+    'max_patience': MAX_PATIENCE,
 }
 for run_i, (train_index, test_index) in enumerate(skf.split(X, y)):
     start_time = time.perf_counter()
@@ -61,7 +50,7 @@ for run_i, (train_index, test_index) in enumerate(skf.split(X, y)):
     y_train_one_hot = y_one_hot[train_index]
     y_test_one_hot = y_one_hot[test_index]
 
-    iter_list = np.arange(1, 10001, 100) 
+    iter_list = np.arange(1, 100001, 1000) 
     test_scores = []
     best_test_score = 0
     patience_counter = 0
@@ -71,6 +60,7 @@ for run_i, (train_index, test_index) in enumerate(skf.split(X, y)):
             algorithm=ALG, 
             max_iters=iterations, bias=True, is_classifier=True, 
             learning_rate=LR, early_stopping=True, clip_max=CLIP, max_attempts=MAX_ATTEMPTS, 
+            schedule=GeomDecay(init_temp=TEMPERATURE, decay=DECAY, min_temp=0.001),
             random_state=run_i, curve=True
         )
         nn_model.fit(X_train, y_train_one_hot)
@@ -102,7 +92,7 @@ for run_i, (train_index, test_index) in enumerate(skf.split(X, y)):
     data['runs'].append(run_data)
 
 # %%
-path = f'metrics/{ALG}/{ALG}_pat{MAX_PATIENCE}_lr{LR}_clip{CLIP}_max_attempts{MAX_ATTEMPTS}_hidden_nodes{HIDDEN_NODES}.pkl'
+path = f'metrics/{ALG}/{ALG}_temp{TEMPERATURE}_decay{DECAY}_pat{MAX_PATIENCE}_lr{LR}_clip{CLIP}_max_attempts{MAX_ATTEMPTS}_hidden_nodes{HIDDEN_NODES}.pkl'
 os.makedirs(os.path.dirname(path), exist_ok=True)
 pickle.dump(data, open(path, 'wb'))
 
