@@ -12,10 +12,10 @@ from dataset_helper import get_mnist_data
 
 import sys
 sys.path.append('../mlrose')
-from mlrose_hiive import NeuralNetwork, GeomDecay
+from mlrose_hiive import NeuralNetwork
 
 # %%
-LR = 0.01
+LR = 1e-2
 ALG = 'genetic_alg'
 MAX_ATTEMPTS = 100
 CLIP = 5
@@ -41,24 +41,6 @@ y_test = y[test_index]
 y_train_one_hot = y_one_hot[train_index]
 y_test_one_hot = y_one_hot[test_index]
 
-nn_model = NeuralNetwork(
-    hidden_nodes=HIDDEN_NODES, activation='relu', 
-    algorithm=ALG, 
-    max_iters=10, bias=True, is_classifier=True, 
-    learning_rate=10, early_stopping=True, clip_max=CLIP, max_attempts=MAX_ATTEMPTS, 
-    pop_size=POPULATION_SIZE, mutation_prob=MUTATION_RATE,
-    random_state=run_i, curve=True
-)
-nn_model.fit(X_train, y_train_one_hot)
-score = nn_model.score(X_test, y_test_one_hot)
-end_time = time.perf_counter()
-print(f"Score: {score}")
-print(f"iterations: {len(nn_model.fitness_curve)}")
-print(f"Time: {end_time - start_time}")
-
-# %%
-plt.plot(nn_model.fitness_curve[:,0])
-
 # %%
 skf = StratifiedKFold(n_splits=3, random_state=None, shuffle=True)
 data = {
@@ -82,7 +64,7 @@ for run_i, (train_index, test_index) in enumerate(skf.split(X, y)):
     y_train_one_hot = y_one_hot[train_index]
     y_test_one_hot = y_one_hot[test_index]
 
-    iter_list = np.arange(1, 100001, 250) 
+    iter_list = np.arange(1, 100001, 10) 
     test_scores = []
     best_test_score = 0
     patience_counter = 0
