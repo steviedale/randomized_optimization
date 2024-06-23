@@ -15,7 +15,7 @@ sys.path.append('../mlrose')
 from mlrose_hiive import NeuralNetwork
 
 # %%
-LR = 1e-8
+LR = 1e-6
 ALG = 'gradient_descent'
 MAX_ATTEMPTS = 100
 CLIP = 5

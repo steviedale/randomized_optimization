@@ -15,7 +15,7 @@ sys.path.append('../mlrose')
 from mlrose_hiive import NeuralNetwork, GeomDecay
 
 # %%
-LR = 1
+LR = 10
 ALG = 'simulated_annealing'
 MAX_ATTEMPTS = 100
 CLIP = 5
