@@ -1,0 +1,4 @@
+Algorithm,Learning Rate,Max Attempts,Test Accuracy,Runtime,Iterations,Max Iterations
+gradient_descent,1.0e-07,100,30.84%,1532.42,1968,3401
+gradient_descent,1.0e-08,100,26.97%,2506.97,3168,4101
+gradient_descent,1.0e-09,100,15.62%,3296.58,2301,6301

@@ -1,0 +1,7 @@
+Algorithm,Learning Rate,Max Attempts,Population Size,Mutation Rate,Test Accuracy,Runtime,Iterations,Max Iterations
+genetic_alg,1e-04,100,200,0.00,42.94%,766.09,88,161
+genetic_alg,1e-04,100,200,0.01,37.43%,464.89,54,76
+genetic_alg,1e-04,100,200,0.10,31.74%,645.98,59,96
+genetic_alg,1e-04,100,200,0.30,22.50%,316.12,39,46
+genetic_alg,1e-04,100,200,0.50,25.15%,593.76,49,71
+genetic_alg,1e-04,100,200,0.70,23.50%,489.63,43,51

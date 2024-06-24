@@ -1,0 +1,4 @@
+Algorithm,Learning Rate,Max Attempts,Restarts,Test Accuracy,Runtime,Mean Iterations,Max Iterations
+random_hill_climb,0.1,100,0,29.43%,nan,1901,2801
+random_hill_climb,1.0,100,0,32.13%,nan,2701,4901
+random_hill_climb,10.0,100,0,30.03%,nan,3468,5701

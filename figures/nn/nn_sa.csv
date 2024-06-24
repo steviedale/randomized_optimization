@@ -1,0 +1,4 @@
+Algorithm,Learning Rate,Max Attempts,Init Temperature,Decay Rate,Test Accuracy,Runtime,Iterations,Max Iterations
+simulated_annealing,0.1,100,1,0.99,28.83%,10821.91,21668,34001
+simulated_annealing,1.0,100,1,0.99,50.45%,14006.49,31668,38001
+simulated_annealing,10.0,100,1,0.99,58.26%,8971.76,19001,35001
